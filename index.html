@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Pookie 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, #44205f 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #35144e 0%, transparent 30%),
+        linear-gradient(135deg, #0d0712, #1b0b25, #0b0710);
+    color: white;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    animation: fadeIn 0.8s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+.glow {
+    text-shadow: 0 0 15px #d993ff, 0 0 30px #8d45b8;
+}
+
+.small {
+    font-size: 13px;
+    opacity: .7;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: clamp(38px, 10vw, 70px);
+    margin: 15px 0;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #d78cff, #8e42b7);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(196, 105, 255, .35);
+    transition: .25s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(214, 132, 255, .6);
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+/* floating hearts */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    opacity: .6;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: .7; }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* envelope */
+.envelope {
+    width: 180px;
+    height: 120px;
+    margin: 30px auto;
+    position: relative;
+    background: #9b55bd;
+    border-radius: 8px;
+    box-shadow: 0 0 35px rgba(203, 115, 255, .35);
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #c579e4;
+    clip-path: polygon(0 0, 50% 55%, 100% 0);
+}
+
+.seal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -10%);
+    width: 38px;
+    height: 38px;
+    background: #4b174f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* cards */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.card {
+    min-height: 130px;
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,.11);
+}
+
+.card-content {
+    display: none;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.card.open .card-title {
+    display: none;
+}
+
+.card.open .card-content {
+    display: block;
+    animation: fadeIn .4s;
+}
+
+/* letter */
+.letter {
+    text-align: left;
+    background:
+        linear-gradient(rgba(255,255,255,.96), rgba(255,248,255,.96));
+    color: #35173e;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.4);
+    transform: rotate(-1deg);
+    margin-top: 25px;
+}
+
+.letter h3 {
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.letter p {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    line-height: 1.55;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 18px;
+    font-size: 25px !important;
+}
+
+/* shameless meter */
+.meter {
+    margin: 25px 0;
+    height: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.12);
+    overflow: hidden;
+}
+
+.meter-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #9e4dcc, #f39cff);
+    transition: width 2s ease;
+}
+
+/* final */
+.final-heart {
+    font-size: 90px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* confetti */
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 8px;
+    height: 14px;
+    animation: confettiFall 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+@media(max-width: 500px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 22px;
+    }
+
+    .letter p {
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page" id="page1">
+    <div class="container">
+
+        <div class="small">A VERY IMPORTANT MESSAGE</div>
+
+        <div class="envelope">
+            <div class="seal">💗</div>
+        </div>
+
+        <h1 class="glow">Hey, Pookie.</h1>
+
+        <p>
+            Someone made something for you.<br>
+            And no, you are not allowed to escape.
+        </p>
+
+        <button onclick="nextPage(2)">
+            Open your surprise 💌
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page hidden" id="page2">
+    <div class="container">
+
+        <div class="small">FIRST THINGS FIRST...</div>
+
+        <h2 class="glow">Before the birthday wishes...</h2>
+
+        <p>
+            We need to discuss one very serious matter.
+        </p>
+
+        <br>
+
+        <h1>How shameless are you?</h1>
+
+        <p>
+            Honestly, the evidence is looking pretty bad. 😭
+        </p>
+
+        <button onclick="showShameless()">
+            Calculate my shamelessness 📊
+        </button>
+
+        <div id="shamelessResult" class="hidden">
+
+            <h2 style="margin-top:30px;">
+                SHAMELESSNESS LEVEL:
+            </h2>
+
+            <h1 id="percentage">0%</h1>
+
+            <div class="meter">
+                <div class="meter-fill" id="meter"></div>
+            </div>
+
+            <p>
+                Congratulations.<br>
+                You have officially exceeded the scientifically acceptable limit.
+                😂
+            </p>
+
+            <button onclick="nextPage(3)">
+                Okay, birthday boy → 
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="page hidden" id="page3">
+    <div class="container">
+
+        <div class="small">NOW FOR THE ACTUAL IMPORTANT PART</div>
+
+        <h1 class="glow">Happy Birthday! 🎂</h1>
+
+        <p>
+            I could write something extremely dramatic here...
+            but I'd rather just be honest.
+        </p>
+
+        <br>
+
+        <p>
+            I'm really glad you're in my life.
+            You make ordinary conversations turn into memories,
+            and somehow you manage to make me smile without even trying.
+        </p>
+
+        <button onclick="nextPage(4)">
+            There's more... 👀
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 4 -->
+<section class="page hidden" id="page4">
+    <div class="container">
+
+        <div class="small">OPEN THESE ONE BY ONE</div>
+
+        <h2 class="glow">A few things about you 💗</h2>
+
+        <div class="cards">
+
+            <div class="card" onclick="openCard(this)">
+                <div class="card-title">😂 Your shamelessness</div>
+                <div class="card-content">
+                    Honestly impressive.
+                    You have absolutely no shame sometimes,
+                    and somehow that makes talking to you even more fun.
+                </div>
+            </div>
+
+            <div class="card" onclick="openCard(this)">
+                <div class="card-title">🫶 You make me smile</div>
+                <div class="card-content">
+                    You genuinely do.
+                    Sometimes it's because of something cute you say,
+                    sometimes because you're being completely ridiculous.
+                </div>
+            </div>
+
+            <div class="card" onclick="openCard(this)">
+                <div class="card-title">💭 The memories</div>
+                <div class="card-content">
+                    We've already collected so many little moments,
+                    and I'm really glad I get to remember them.
+                </div>
+            </div>
+
+            <div class="card" onclick="openCard(this)">
+                <div class="card-title">🤨 One complaint</div>
+                <div class="card-content">
+                    You are way too comfortable being this shameless.
+                    Please consider developing approximately 2% more dignity.
+                </div>
+            </div>
+
+        </div>
+
+        <button onclick="nextPage(5)">
+            Open your letter 💌
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 5 -->
+<section class="page hidden" id="page5">
+    <div class="container">
+
+        <div class="small">A LITTLE LETTER</div>
+
+        <div class="letter">
+
+            <h3>dear patidev,</h3>
+
+            <p>
+                I hope this year brings you all the happiness, success,
+                and little moments that make you smile.
+                I’m really glad you’re in my life,
+                you make me smile every time we talk.
+            </p>
+
+            <p>
+                Thank you for being you, for making me smile,
+                and for giving me so many cute memories already.
+                I hope your birthday is as amazing as you are.
+            </p>
+
+            <p>
+                Stay happy .stay mine
+            </p>
+
+            <p>
+                Happy Birthday, pookie. 🎂🫶🏻
+                Love youuu! 💕
+            </p>
+
+            <p class="signature">
+                Yours truly,<br>
+                your favourite headache 💗
+            </p>
+
+        </div>
+
+        <button onclick="nextPage(6)">
+            One last thing... 🎁
+        </button>
+
+    </div>
+</section>
+
+
+<!-- PAGE 6 -->
+<section class="page hidden" id="page6">
+    <div class="container">
+
+        <div class="final-heart">💗</div>
+
+        <h1 class="glow">One last thing...</h1>
+
+        <p>
+            I hope you know that you're genuinely special to me.
+        </p>
+
+        <br>
+
+        <p>
+            Thank you for being part of my life,
+            for the laughs, the conversations,
+            the memories,
+            and for simply being you.
+        </p>
+
+        <button onclick="finalSurprise()">
+            Click for your final surprise 🎁
+        </button>
+
+        <div id="finalMessage" class="hidden">
+
+            <h1 class="glow" style="margin-top:35px;">
+                HAPPY BIRTHDAY, POOKIE! 🎂
+            </h1>
+
+            <p style="font-size:18px;">
+                Stay happy.<br>
+                Stay shameless.<br>
+                Stay mine. 🫶🏻
+            </p>
+
+            <br>
+
+            <p>
+                Love youuu! 💕
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function nextPage(number) {
+
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.add('hidden');
+    });
+
+    document.getElementById('page' + number).classList.remove('hidden');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+/* SHAMELESS METER */
+
+function showShameless() {
+
+    const result = document.getElementById("shamelessResult");
+    const percentage = document.getElementById("percentage");
+    const meter = document.getElementById("meter");
+
+    result.classList.remove("hidden");
+
+    let number = 0;
+
+    const interval = setInterval(() => {
+
+        number++;
+
+        percentage.innerText = number + "%";
+
+        if (number >= 99) {
+            clearInterval(interval);
+        }
+
+    }, 20);
+
+    setTimeout(() => {
+        meter.style.width = "99%";
+    }, 100);
+}
+
+
+/* CARD OPENING */
+
+function openCard(card) {
+    card.classList.toggle("open");
+}
+
+
+/* FLOATING HEARTS */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = ["💗", "💕", "💖", "💜", "♡"];
+
+    heart.innerText =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 900);
+
+
+/* FINAL CONFETTI */
+
+function finalSurprise() {
+
+    document.getElementById("finalMessage")
+        .classList.remove("hidden");
+
+    for (let i = 0; i < 100; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        piece.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+        const colors = [
+            "#ff8bd8",
+            "#c77dff",
+            "#ffffff",
+            "#ffd166",
+            "#9bf6ff"
+        ];
+
+        piece.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 4500);
+    }
+
+}
+
+</script>
+
+</body>
+  </html>
