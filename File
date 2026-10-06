@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Pookie 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(circle at top, #3b1631 0%, #170b19 45%, #080509 100%);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Floating hearts */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 18px;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.7;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main */
+
+.container {
+    width: min(92%, 650px);
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 0;
+}
+
+.card {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    backdrop-filter: blur(18px);
+    border-radius: 30px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+}
+
+h1, h2 {
+    font-family: 'DM Serif Display', serif;
+}
+
+h1 {
+    font-size: clamp(42px, 12vw, 75px);
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+p {
+    line-height: 1.8;
+    color: #f4dce9;
+}
+
+.small {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+button {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff77ad, #ff4f91);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 24px;
+    box-shadow: 0 10px 30px rgba(255,79,145,0.25);
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* Opening */
+
+.badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.glow {
+    color: #ff91bb;
+    text-shadow: 0 0 25px rgba(255,100,160,0.5);
+}
+
+/* Surprise */
+
+.hidden {
+    display: none;
+}
+
+.reveal {
+    animation: reveal 0.8s ease forwards;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Shameless meter */
+
+.meter {
+    margin: 25px 0;
+    height: 17px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+.meter-fill {
+    width: 97%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ff8ab8, #ff367e);
+    animation: fill 1.8s ease;
+}
+
+@keyframes fill {
+    from {
+        width: 0;
+    }
+    to {
+        width: 97%;
+    }
+}
+
+.rating {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ff8db9;
+}
+
+/* Reasons */
+
+.reason {
+    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 17px;
+    margin: 12px 0;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+.reason span {
+    margin-right: 8px;
+}
+
+/* Letter */
+
+.letter {
+    background: #fff7fb;
+    color: #442034;
+    border-radius: 18px;
+    padding: 28px 22px;
+    text-align: left;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.letter p {
+    color: #442034;
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+.letter-title {
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 22px;
+}
+
+/* Final */
+
+.final {
+    position: relative;
+}
+
+.final h1 {
+    font-size: clamp(42px, 11vw, 70px);
+}
+
+.signature {
+    margin-top: 22px;
+    color: #ff91bb;
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+}
+
+/* Toast */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #fff;
+    color: #351625;
+    padding: 14px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: 100;
+    width: max-content;
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Confetti */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    font-size: 20px;
+    animation: fall 3s linear forwards;
+    z-index: 99;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #c69db2;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:8%; animation-duration:8s;">♡</div>
+<div class="heart" style="left:20%; animation-duration:11s;">♥</div>
+<div class="heart" style="left:37%; animation-duration:9s;">♡</div>
+<div class="heart" style="left:55%; animation-duration:13s;">♥</div>
+<div class="heart" style="left:73%; animation-duration:10s;">♡</div>
+<div class="heart" style="left:90%; animation-duration:12s;">♥</div>
+
+<!-- OPENING -->
+
+<section>
+<div class="container">
+<div class="card">
+
+<div class="badge">A VERY IMPORTANT ANNOUNCEMENT 🎀</div>
+
+<h1>
+Happy Birthday<br>
+<span class="glow">Pookie.</span>
+</h1>
+
+<p>
+Yes, you.<br>
+The shameless one.
+</p>
+
+<p class="small" style="margin-top:12px;">
+Before you continue, please prepare yourself emotionally.
+<br>
+There may be compliments. There may also be allegations.
+</p>
+
+<button onclick="openSurprise()">
+Open your surprise 🎁
+</button>
+
+</div>
+</div>
+</section>
+
+
+<!-- SURPRISE -->
+
+<section id="surprise" class="hidden">
+<div class="container">
+<div class="card reveal">
+
+<h2>First of all... 👀</h2>
+
+<p>
+You really thought I was going to let your birthday pass
+without making something for you?
+</p>
+
+<p style="margin-top:15px;">
+That's adorable.
+<br>
+Also completely incorrect.
+</p>
+
+<button onclick="showToast('Yes. You are officially very loved. Unfortunately. 💗')">
+One important question
+</button>
+
+</div>
+</div>
+</section>
+
+
+<!-- SHAMELESS SECTION -->
+
+<section>
+<div class="container">
+<div class="card">
+
+<div class="badge">SCIENTIFIC RESEARCH 🧪</div>
+
+<h2>How shameless are you?</h2>
+
+<p>
+After extensive research, several investigations,
+and absolutely no permission from you...
+</p>
+
+<div class="rating">97%</div>
+
+<div class="meter">
+<div class="meter-fill"></div>
+</div>
+
+<p>
+<strong>Official diagnosis:</strong><br>
+Ridiculously shameless. 🤨
+</p>
+
+<button onclick="showToast('The remaining 3% is probably hiding behind your excuses. 😂')">
+Explain yourself
+</button>
+
+</div>
+</div>
+</section>
+
+
+<!-- REASONS -->
+
+<section>
+<div class="container">
+<div class="card">
+
+<h2>But here's the problem... 🫠</h2>
+
+<p>
+Somehow, despite all your nonsense,
+you've become someone really special to me.
+</p>
+
+<div class="reason">
+<span>💗</span>
+You make me smile without even trying.
+</div>
+
+<div class="reason">
+<span>😂</span>
+You somehow turn completely normal conversations into memories.
+</div>
+
+<div class="reason">
+<span>🫶🏻</span>
+You make me feel happy just by being around.
+</div>
+
+<div class="reason">
+<span>🎀</span>
+And unfortunately, I have grown very attached to this particular idiot.
+</div>
+
+<button onclick="showToast('Yes, I called you an idiot. A loved idiot. 💗')">
+Read that last one again
+</button>
+
+</div>
+</div>
+</section>
+
+
+<!-- LETTER -->
+
+<section>
+<div class="container">
+<div class="card">
+
+<div class="badge">A LETTER FOR YOU 💌</div>
+
+<div class="letter">
+
+<div class="letter-title">
+dear patidev,
+</div>
+
+<p>
+I hope this year brings you all the happiness, success,
+and little moments that make you smile.
+I’m really glad you’re in my life,
+</p>
+
+<p>
+you make me smile every time we talk.
+</p>
+
+<p>
+Thank you for being you, for making me smile,
+and for giving me so many cute memories already.
+I hope your birthday is as amazing as you are.
+</p>
+
+<p>
+Stay happy. Stay mine.
+</p>
+
+<p>
+Happy Birthday, pookie. 🎂🫶🏻
+Love youuu! 💕
+</p>
+
+</div>
+
+<button onclick="heartExplosion()">
+One last thing... 👀
+</button>
+
+</div>
+</div>
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+<div class="container">
+<div class="card">
+
+<div class="badge">FINAL NOTICE 🚨</div>
+
+<h1>
+Congratulations! 🎉
+</h1>
+
+<p style="font-size:18px;">
+You have successfully survived another year
+of being ridiculously shameless.
+</p>
+
+<p style="margin-top:20px;">
+Unfortunately for you,
+<strong>you're stuck with me now.</strong>
+</p>
+
+<p style="margin-top:20px;">
+So here's to another year of your nonsense,
+my complaints, your shamelessness,
+and a LOT more memories.
+</p>
+
+<h2 style="margin-top:30px;">
+Happy Birthday, patidev. 🎂💗
+</h2>
+
+<p>
+Stay happy.<br>
+Stay shameless.<br>
+<strong>Stay mine. 🫶🏻</strong>
+</p>
+
+<div class="signature">
+Love youuu! 💕
+</div>
+
+<button onclick="finalSurprise()">
+Okay, now smile. 😌
+</button>
+
+</div>
+</div>
+</section>
+
+<footer>
+Made with love, questionable patience, and way too much affection. 💗
+</footer>
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+function openSurprise() {
+    const section = document.getElementById("surprise");
+    section.classList.remove("hidden");
+
+    setTimeout(() => {
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+    }, 100);
+
+    heartExplosion();
+}
+
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
+
+
+function heartExplosion() {
+
+    const hearts = ["💗","💕","💖","💘","🫶🏻","🎀","✨"];
+
+    for(let i = 0; i < 25; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "confetti";
+
+        heart.textContent =
+            hearts[Math.floor(Math.random() * hearts.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (2 + Math.random() * 2) + "s";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 18) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
+    }
+
+    showToast("Okay fine... you are very loved. 💗");
+}
+
+
+function finalSurprise() {
+
+    heartExplosion();
+
+    setTimeout(() => {
+
+        showToast(
+            "Now go enjoy your birthday, patidev. And remember who made this for you. 😌💗"
+        );
+
+    }, 700);
+
+}
+
+</script>
+
+</body>
+  </html>
